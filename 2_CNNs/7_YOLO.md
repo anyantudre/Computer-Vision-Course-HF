@@ -102,22 +102,10 @@ The YOLOv1 (inspired by GoogLeNet, which used 1x1 convolutions to reduce the dep
 
 
 
-
 ##### Training
 The network is trained end-to-end on the image and the ground truth bounding boxes. The loss function is a sum of squared error loss. The loss function is designed to penalize the network for incorrect predictions of bounding box coordinates, confidence and class probabilities. 
 
 
 YOLO predicts multiple bounding boxes per grid cell. At training time, we only want one bounding box predictor to be responsible for each object. We assign one predictor to be “responsible” for predicting an object based on which prediction has the highest current IOU with the ground truth. This leads to specialization between the bounding box predictors. Each predictor gets better at predicting certain sizes, aspect ratios, or classes of objects, improving overall recall. We will encode this information in the loss function for grid cell $i$ and bounding box $b$ using $\mathbb{1}{ib}^{\text{obj}}$. $\mathbb{1}{ib}^{\text{noobj}}$ is the opposite of $\mathbb{1}_{ib}^{\text{obj}}$.
-
-
-
-
-
-
-
-
-
-
-
 
 
